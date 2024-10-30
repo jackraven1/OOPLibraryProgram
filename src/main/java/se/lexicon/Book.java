@@ -6,7 +6,7 @@ class Book {
     private String title; // Title of the book
     private String author; // Author of the book
     private boolean available; // Indicates if the book is available for borrowing
-    private String borrower; // Name of the person who borrowed the book
+    private Person borrower; // Name of the person who borrowed the book
 
     // Constructor to create a book with a title and an author
     public Book(String title, String author) {
@@ -18,9 +18,9 @@ class Book {
     }
 
     // Constructor to create a book with a title, an author, and a borrower
-    public Book(String title, String author, String borrower) {
+    public Book(String title, String author, Person borrower) {
         this(title, author); // Call the first constructor to set title and author
-        setBorrower(borrower); // Set the borrower using the setter method
+        borrower.loanBook(this); // Set the borrower using the setter method
     }
 
     // Getter method for the ID
@@ -39,12 +39,12 @@ class Book {
     }
 
     // Getter method for the borrower
-    public String getBorrower() {
+    public Person getBorrower() {
         return borrower; // Return the name of the borrower
     }
 
     // Setter method to set the borrower of the book
-    public void setBorrower(String borrower) {
+    public void setBorrower(Person borrower) {
         this.borrower = borrower; // Set the borrower
         this.available = (borrower == null); // Update availability based on borrower status
     }

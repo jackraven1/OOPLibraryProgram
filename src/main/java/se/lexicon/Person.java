@@ -40,7 +40,7 @@ class Person {
     // Method to loan a book to the person
     public void loanBook(Book book) {
         if (book.getBorrower() == null) { // Check if the book is available for loan
-            book.setBorrower(firstName + " " + lastName); // Set the borrower of the book
+            book.setBorrower(this); // Set the borrower of the book
 
             // Resize the array to hold one more book
             borrowedBooks = Arrays.copyOf(borrowedBooks, borrowedBooks.length + 1);
